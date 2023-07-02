@@ -15,7 +15,7 @@ dependencies:
     - field.field.node.evento.field_immagine
     - field.field.node.evento.field_importi_viaggio_servizio
     - field.field.node.evento.field_luogo
-    - field.field.node.evento.field_patrocinato_da
+    - field.field.node.evento.field_patrocinio
     - field.field.node.evento.field_persone
     - field.field.node.evento.field_punti_di_contatto
     - field.field.node.evento.field_sottotitolo
@@ -34,17 +34,18 @@ dependencies:
     - paragraphs
     - path
     - text
-    - viewsreference
 third_party_settings:
   field_group:
     group_multimedia:
       children:
+        - group_intro
+        - group_altro
         - group_galleria_fotografica
         - group_galleria_video
-      label: Multimedia
+      label: Contenitore
       region: content
       parent_name: ''
-      weight: 27
+      weight: 12
       format_type: tabs
       format_settings:
         classes: ''
@@ -58,13 +59,13 @@ third_party_settings:
       label: 'Galleria fotografica'
       region: content
       parent_name: group_multimedia
-      weight: 31
+      weight: 22
       format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: true
         id: ''
-        formatter: open
+        formatter: closed
         description: ''
         required_fields: true
     group_galleria_video:
@@ -73,11 +74,54 @@ third_party_settings:
       label: 'Galleria video'
       region: content
       parent_name: group_multimedia
-      weight: 32
+      weight: 23
       format_type: tab
       format_settings:
         classes: ''
         show_empty_fields: true
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_intro:
+      children:
+        - field_descrizione_breve
+        - field_argomenti
+        - field_immagine
+        - field_evento_genitore
+        - field_descrizione_completa
+        - field_persone
+        - field_a_chi_e_rivolto
+        - field_luogo
+        - field_importi_viaggio_servizio
+        - field_allegati
+      label: Intro
+      region: content
+      parent_name: group_multimedia
+      weight: 20
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_altro:
+      children:
+        - field_punti_di_contatto
+        - field_unita_organizzativa
+        - field_patrocinio
+        - field_sponsor
+        - field_ulteriori_informazioni
+      label: Altro
+      region: content
+      parent_name: group_multimedia
+      weight: 21
+      format_type: tab
+      format_settings:
+        classes: ''
+        show_empty_fields: false
         id: ''
         formatter: closed
         description: ''
@@ -196,23 +240,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_patrocinato_da:
-    type: paragraphs
+  field_patrocinio:
+    type: text_textarea
     weight: 24
     region: content
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      closed_mode: summary
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-      features:
-        collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   field_persone:
     type: entity_reference_autocomplete
@@ -251,23 +285,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_sponsor:
-    type: paragraphs
+    type: text_textarea
     weight: 25
     region: content
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      closed_mode: summary
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: _none
-      features:
-        add_above: '0'
-        collapse_edit_all: collapse_edit_all
-        duplicate: duplicate
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   field_tipo_di_evento:
     type: options_select
@@ -307,12 +330,6 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
-    third_party_settings: {  }
-  field_view_reference:
-    type: viewsreference_select
-    weight: 33
-    region: content
-    settings: {  }
     third_party_settings: {  }
   langcode:
     type: language_select
@@ -366,5 +383,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_view_reference: true
 

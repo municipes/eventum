@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.evento.field_immagine
     - field.field.node.evento.field_importi_viaggio_servizio
     - field.field.node.evento.field_luogo
-    - field.field.node.evento.field_patrocinato_da
+    - field.field.node.evento.field_patrocinio
     - field.field.node.evento.field_persone
     - field.field.node.evento.field_punti_di_contatto
     - field.field.node.evento.field_sottotitolo
@@ -134,14 +134,12 @@ content:
     third_party_settings: {  }
     weight: 115
     region: content
-  field_patrocinato_da:
-    type: entity_reference_revisions_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
+  field_patrocinio:
+    type: text_default
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    weight: 126
+    weight: 138
     region: content
   field_persone:
     type: entity_reference_entity_view
@@ -194,13 +192,11 @@ content:
     weight: 102
     region: content
   field_sponsor:
-    type: entity_reference_revisions_entity_view
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
+    type: text_default
+    label: above
+    settings: {  }
     third_party_settings: {  }
-    weight: 127
+    weight: 139
     region: content
   field_tipo_di_evento:
     type: entity_reference_label
