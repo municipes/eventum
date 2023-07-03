@@ -17,7 +17,7 @@ dependencies:
   - type_tray:type_tray
   - ui_patterns_field_formatters:ui_patterns_field_formatters
   - viewsreference:viewsreference
-  - drupal:bootstrap_italia_paragraph_date_timeline
+  - scaenographia:bootstrap_italia_paragraph_date_timeline
   - municipes:lexicum
   - municipes:fundamentum
 
